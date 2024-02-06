@@ -1,0 +1,95 @@
+<app-nav-bar></app-nav-bar>
+  <div class="multi-step-form">
+    <div *ngIf="currentStep === 1">
+      <form [formGroup]="formDemandeur" novalidate >
+      <div class="container">
+        <div class="title">Information personnelle</div>
+        <div class="content">
+         <div class="form">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Nom</span>
+                <input type="text" placeholder="Entrer votre nom" formControlName="nom" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Prenom</span>
+                <input type="text" placeholder="Entrer votre numéro téléphone" formControlName="prenom" required>
+              </div>
+              <div class="input-box">
+                <span class="details">CIN</span>
+                <input type="text" placeholder="Entrer votre CIN" formControlName="cin" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Numéro téléphone</span>
+                <input type="text" placeholder="Entrer votre numéro téléphone" formControlName="tel" required>
+              </div>
+              <div class="input-box">
+                <span class="details">E-mail professionnel</span>
+                <input type="email" placeholder="Entrer votre mail professionnel" formControlName="mail" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Déplome en forme png</span>
+                <input type="file" (change)="fileChangeDeplome($event)">
+              </div>
+              <div class="input-box">
+                <span class="details">CV en forme png</span>
+                <input type="file" (change)="fileChangeCv($event)">
+              </div>
+            </div>
+            <div class="button">
+              <input type="submit" value="Next" (click)="nextStep()" style="margin-left: 615px;">
+            </div>
+            </div>
+        </div>
+      </div>
+    </form>
+    </div>
+    <div *ngIf="currentStep === 2">
+      <form [formGroup]="formDemande" (ngSubmit)="saveDemande()" novalidate >
+      <div class="container">
+        <div class="title">Information sur l'entreprise</div>
+        <div class="content">
+          <div class="form">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Nom de l'entreprise</span>
+                <input type="text" placeholder="Entrer le nom de l'entreprise" formControlName="nomEntreprise" required>
+              </div>
+              
+              <div class="input-box">
+                <span class="details">Idee de votre projet</span>
+                <input type="text" placeholder="Entrer votre idée de projet " formControlName="ideeProjet" required>
+
+              </div>
+              <div class="input-box">
+                <span class="details">E-mail de l'entreprise</span>
+                <input type="email" placeholder="Entrer l'email de l'entreprise" formControlName="mailEntreprise" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Services</span>
+                <input type="text" placeholder="Entrer les services de l'entreprise" formControlName="service" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Logo de l'entreprise</span>
+                <input type="file" (change)="fileChangeLogo($event)">
+              </div>
+              <div class="input-box">
+                <span class="details">Lien de votre site web</span>
+                <input type="text" placeholder="Entrer votre site web" formControlName="service" required>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <div class="button">
+                <input type="submit" value="Previous" (click)="prevStep()">
+              </div>
+              <div class="button">
+                <input type="button" value="Submit" (click)="saveDemande()"(click)="submitForm()">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+  <app-footer></app-footer>

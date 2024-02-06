@@ -1,0 +1,43 @@
+
+<body>
+  <div class="container">
+    <div class="title">Ajouter une entreprise</div>
+    <div class="content">
+      <form [formGroup]="formEntreprise" (ngSubmit)="SaveEntreprise()" novalidate>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Nom de l'entreprise</span>
+            <input type="text" placeholder="Entrer le nom de l'entreprise" formControlName="nomEntreprise" required>
+
+          </div>
+          <div class="input-box">
+            <span class="details">Nom du gérant</span>
+            <input type="text" placeholder="Entrer le nom du gérant " formControlName="gerant" required>
+
+          </div>
+          <div class="input-box">
+            <span class="details">E-mail</span>
+            <input type="email" placeholder="Entrer l'email de l'entreprise" formControlName="mailEntreprise" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Services</span>
+            <input type="text" placeholder="Entrer le service de l'entreprise" formControlName="service" required>
+
+          </div>
+          <div class="input-box">
+            <span class="details">Lien de votre site web</span>
+            <input type="text" placeholder="Entrer votre site web" formControlName="siteEntreprise" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Logo de l'entreprise</span>
+            <input type="file" (change)="fileChangeLogo($event)">
+          </div>
+          <div class="button">
+            <input type="submit" value="Ajouter">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <body>

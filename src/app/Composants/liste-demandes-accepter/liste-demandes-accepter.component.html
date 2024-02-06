@@ -1,0 +1,36 @@
+
+    <table class="table table-bordered table-secondary">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col" class="th">Nom</th>
+          <th scope="col"class="th">Prenom</th>
+          <th scope="col"class="th">N°Téléphone</th>
+          <th scope="col"class="th">Mail</th>
+          <th scope="col" colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of demandes| paginate:{
+            itemsPerPage: cardSize,
+            currentPage: page,
+            totalItems: count
+        };let i = index" class="table-light">
+          <td>{{trouvedemandeur(p.id)?.nom}}</td>
+          <td>{{trouvedemandeur(p.id)?.prenom}}</td>
+          <td>{{trouvedemandeur(p.id)?.tel}}</td>
+          <td>{{trouvedemandeur(p.id)?.mail}}</td>
+          <td><button class="btn btn-danger" ><i class="fa-solid fa-xmark"></i></button>
+          </td>
+          <td>
+            <button type="button" (click)="confermerDemande(p.id)" class="btn btn-success">
+              <i class="fa-solid fa-check"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <pagination-controls *ngIf="demandes.length>8" previousLabel="prev" nextLabel="next"
+        (pageChange)="onCardDataChange($event)" class="container d-flex align-items-center justify-content-center">
+      </pagination-controls>
+    </div>

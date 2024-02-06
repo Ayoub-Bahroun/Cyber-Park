@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <nav [ngClass]="!collapsed ? 'sidenav-collapsed':''">
+    <div class="sidebar-top">
+      <div>
+        <button style="background-color: transparent; border: 0;" (click)="togglecollase()">
+          <img src="assets\images\logo-removebg-preview.png" width="120px" height="60px" style="margin-left: -40px;" alt="">
+        </button>
+        <button style="margin-left: 90px;border: none; background-color: transparent;" (click)="closeSidenav()"
+          *ngIf="collapsed">
+          <i class="fa-solid fa-bars" style="font-size: 26px;"></i>
+        </button>
+      </div>
+    </div>
+    <div class="sidebar-links">
+      <ul>
+        <li>
+          <a routerLink="/AdminComponent/ListeEntrepriseComponent" routerLinkActive="active" title="products">
+            <i class="fa-regular fa-rectangle-list" style="font-size: 18px;"></i>
+            <span class="link hide" *ngIf="collapsed">Liste d'entreprises</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/AdminComponent/ListeDemandeComponent" routerLinkActive="active" title="home/new produit">
+            <i class="fa-solid fa-rectangle-list" style="font-size: 18px;"></i>
+            <span class="link hide" *ngIf="collapsed">Liste de demandes</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/AdminComponent/ListeDemandesAccepterComponent" routerLinkActive="active" title="home/new produit">
+            <i class="fa-solid fa-rectangle-list" style="font-size: 18px;"></i>
+            <span class="link hide" *ngIf="collapsed">Liste de demandes accepter</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/AdminComponent/AjoutEntrepriseComponent" routerLinkActive="active" title="Messages">
+            <i class="fa-solid fa-square-plus" style="font-size: 18px;"></i>
+            <span class="link hide" *ngIf="collapsed">Ajouter une entreprise</span>
+          </a>
+        </li>
+        <li style="margin-top: 200px;"><a class="dropdown-item" href="" (click)="deconnexion()"
+            style="color: red;"><i class="fa-solid fa-right-from-bracket"></i><span class="link hide" *ngIf="collapsed" style="font-size: 18px;">Déconnecter</span></a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+
+  <table class="table table-bordered table-secondary">
+    <thead>
+      <tr>
+        <th scope="col" class="th">Logo de l'entreprise</th>
+        <th scope="col" class="th">gerant</th>
+        <th scope="col" class="th">Nom De L'entreprise</th>
+        <th scope="col" class="th">Mail de l'entreprise</th>
+        <th scope="col" class="th">Service de l'entreprise</th>
+        <th scope="col" colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of entreprises| paginate:{
+            itemsPerPage: cardSize,
+            currentPage: page,
+            totalItems: count
+        };let i = index" class="table-light" >
+
+        <td><a>
+            <span class="link hide"> <img [src]="getlogoentreprise(p.id)" width="40" height="40"
+                style="border-radius: 50%;"></span>
+          </a></td>
+        <td>{{p.gerant}}</td>
+        <td>{{p.nomEntreprise}}</td>
+        <td>{{p.mailEntreprise}}</td>
+        <td>{{p.service}}</td>
+        <td><button class="btn btn-danger" (click)="SupprimerEntreprise(p.id)"><i class="fa fa-solid fa-trash"></i></button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="OpenModifierModal(p.id)">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modifier Produit</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div >
+                  <form class="modal-body"  [formGroup]="formModifierEntreprise"  novalidate>
+                  Nom de l'entreprise : <input type="text" class="form-control" placeholder="Nom" aria-label="Recipient's username"
+                    aria-describedby="basic-addon2" formControlName="nomEntreprise">
+                  Gérant : <input type="text" class="form-control" placeholder="Gérant"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2"  formControlName="gerant" >
+                  Mail de l'entreprise  <input type="text" class="form-control" placeholder="Mail"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="mailEntreprise">
+                  Service de l'entreprise  <input type="text" class="form-control" placeholder="Service"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="service">
+                  Site de l'entreprise  <input type="text" class="form-control" placeholder="Site web"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="siteEntreprise">
+                  Logo de l'entreprise : <input type="file"
+                      (change)="fileChangeLogo($event)">
+                  </form>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="modifierEntreprise()" >
+                    Sauvegarder</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <pagination-controls *ngIf="entreprises.length>8" previousLabel="prev" nextLabel="next"
+      (pageChange)="onCardDataChange($event)" class="container d-flex align-items-center justify-content-center">
+    </pagination-controls>
+  </div>
