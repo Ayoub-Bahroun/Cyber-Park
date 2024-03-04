@@ -1,31 +1,52 @@
 <app-nav-bar></app-nav-bar>
-  <div class="multi-step-form">
-    <div *ngIf="currentStep === 1">
-      <form [formGroup]="formDemandeur" novalidate >
+<div class="multi-step-form">
+  <div *ngIf="currentStep === 1">
+    <form [formGroup]="formDemandeur" novalidate>
       <div class="container">
         <div class="title">Information personnelle</div>
         <div class="content">
-         <div class="form">
+          <div class="form">
             <div class="user-details">
               <div class="input-box">
                 <span class="details">Nom</span>
                 <input type="text" placeholder="Entrer votre nom" formControlName="nom" required>
+                <small *ngIf="formDemandeur.controls['nom'].errors && formDemandeur.controls['nom'].touched"
+                  class="text-danger">
+                  {{ getErrorsMessage('nom', formDemandeur.controls['nom'].errors) }}
+                </small>
               </div>
               <div class="input-box">
                 <span class="details">Prenom</span>
                 <input type="text" placeholder="Entrer votre numéro téléphone" formControlName="prenom" required>
+                <small *ngIf="formDemandeur.controls['prenom'].errors && formDemandeur.controls['prenom'].touched"
+                  class="text-danger">
+                  {{ getErrorsMessage('prenom', formDemandeur.controls['prenom'].errors) }}
+                </small>
               </div>
               <div class="input-box">
                 <span class="details">CIN</span>
                 <input type="text" placeholder="Entrer votre CIN" formControlName="cin" required>
+                <small *ngIf="formDemandeur.controls['cin'].errors && formDemandeur.controls['cin'].touched"
+                  class="text-danger">
+                  {{ getErrorsMessage('cin', formDemandeur.controls['cin'].errors) }}
+                </small>
               </div>
               <div class="input-box">
                 <span class="details">Numéro téléphone</span>
                 <input type="text" placeholder="Entrer votre numéro téléphone" formControlName="tel" required>
+                <small *ngIf="formDemandeur.controls['tel'].errors && formDemandeur.controls['tel'].touched"
+                  class="text-danger">
+                  {{ getErrorsMessage('tel', formDemandeur.controls['tel'].errors) }}
+                </small>
+
               </div>
               <div class="input-box">
                 <span class="details">E-mail professionnel</span>
-                <input type="email" placeholder="Entrer votre mail professionnel" formControlName="mail" required>
+                <input type="text" placeholder="Entrer votre mail professionnel" formControlName="mail" required>
+                <small *ngIf="formDemandeur.controls['mail'].errors && formDemandeur.controls['mail'].touched"
+                  class="text-danger">
+                  {{ getErrorsMessage('mail', formDemandeur.controls['mail'].errors) }}
+                </small>
               </div>
               <div class="input-box">
                 <span class="details">Déplome en forme png</span>
@@ -36,16 +57,20 @@
                 <input type="file" (change)="fileChangeCv($event)">
               </div>
             </div>
-            <div class="button">
-              <input type="submit" value="Next" (click)="nextStep()" style="margin-left: 615px;">
+            <div id="button">
+              <input type="submit" value="Next" (click)="nextStep()" style="margin-left: 615px;"
+                [disabled]="formDemandeur.invalid" [title]="titre()" [ngStyle]="{
+                  'cursor': formDemandeur.invalid ? 'not-allowed' : 'pointer',
+                  }" (mouseenter)="hovered = true" (mouseleave)="hovered = false"
+                [style.backgroundColor]="hovered ? (formDemandeur.invalid ? 'red' : '#7cc576') : ''">
             </div>
-            </div>
+          </div>
         </div>
       </div>
     </form>
-    </div>
-    <div *ngIf="currentStep === 2">
-      <form [formGroup]="formDemande" (ngSubmit)="saveDemande()" novalidate >
+  </div>
+  <div *ngIf="currentStep === 2">
+    <form [formGroup]="formDemande"  novalidate>
       <div class="container">
         <div class="title">Information sur l'entreprise</div>
         <div class="content">
@@ -54,20 +79,38 @@
               <div class="input-box">
                 <span class="details">Nom de l'entreprise</span>
                 <input type="text" placeholder="Entrer le nom de l'entreprise" formControlName="nomEntreprise" required>
+                <small
+                  *ngIf="formDemande.controls['nomEntreprise'].errors && formDemande.controls['nomEntreprise'].touched"
+                  class="text-danger">
+                  {{ getErrorsMessage('nomEntreprise', formDemande.controls['nomEntreprise'].errors) }}
+                </small>
               </div>
-              
+
               <div class="input-box">
                 <span class="details">Idee de votre projet</span>
                 <input type="text" placeholder="Entrer votre idée de projet " formControlName="ideeProjet" required>
-
+                <small *ngIf="formDemande.controls['ideeProjet'].errors && formDemande.controls['ideeProjet'].touched"
+                  class="text-danger">
+                  {{ getErrorsMessage('ideeProjet', formDemande.controls['ideeProjet'].errors) }}
+                </small>
               </div>
               <div class="input-box">
                 <span class="details">E-mail de l'entreprise</span>
-                <input type="email" placeholder="Entrer l'email de l'entreprise" formControlName="mailEntreprise" required>
+                <input type="text" placeholder="Entrer l'email de l'entreprise" formControlName="mailEntreprise"
+                  required>
+                <small
+                  *ngIf="formDemande.controls['mailEntreprise'].errors && formDemande.controls['mailEntreprise'].touched"
+                  class="text-danger">
+                  {{ getErrorsMessage('mailEntreprise', formDemande.controls['mailEntreprise'].errors) }}
+                </small>
               </div>
               <div class="input-box">
                 <span class="details">Services</span>
                 <input type="text" placeholder="Entrer les services de l'entreprise" formControlName="service" required>
+                <small *ngIf="formDemande.controls['service'].errors && formDemande.controls['service'].touched"
+                  class="text-danger">
+                  {{ getErrorsMessage('service', formDemande.controls['service'].errors) }}
+                </small>
               </div>
               <div class="input-box">
                 <span class="details">Logo de l'entreprise</span>
@@ -82,14 +125,38 @@
               <div class="button">
                 <input type="submit" value="Previous" (click)="prevStep()">
               </div>
-              <div class="button">
-                <input type="button" value="Submit" (click)="saveDemande()"(click)="submitForm()">
+              <div id="button">
+                <input type="button" value="Submit" [disabled]="ia === 'false'||formDemande.invalid"
+                   [title]="titre()" [ngStyle]="{
+                  'cursor': ia === 'false'||formDemande.invalid ? 'not-allowed' : 'pointer',
+                  }" (mouseenter)="hovered = true" (mouseleave)="hovered = false"
+                  [style.backgroundColor]="hovered ? (ia === 'false'||formDemande.invalid ? 'red' : '#7cc576') : ''"
+                  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="saveDemande();submitForm()">
+              </div>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true" style="margin-left: 510px; width: 550px;">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel" style="margin-left: 20px;"> Confirmez-vous ?
+                      </h1>
+                    </div>
+                    <div style="margin-left: 20px;">Êtes-vous sûr de vouloir envoyer cette demande ?</div>
+                    <div class="modal-footer d-flex justify-content-between"
+                      style="margin-left: 20px; margin-right: 20px;">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        style="width: 100px;">Annuler</button>
+                      <button type="button" class="btn btn-primary" style="width: 100px;"  data-bs-dismiss="modal">Envoyer</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </form>
-    </div>
   </div>
-  <app-footer></app-footer>
+</div>
+<app-footer></app-footer>

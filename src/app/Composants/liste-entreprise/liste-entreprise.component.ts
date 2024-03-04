@@ -23,7 +23,6 @@ export class ListeEntrepriseComponent {
   ngOnInit() {
     this.listeEntreprise()
     this.getlogos()
-    console.log(this.objectImage3)
     this.formModifierEntreprise = this.fb.group({
       nomEntreprise: ['', Validators.required],
       gerant: ['', Validators.required],

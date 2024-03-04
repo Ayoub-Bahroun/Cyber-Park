@@ -16,7 +16,8 @@ export class AppHttpInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (!request.url.includes("/auth/login")
     &&!request.url.includes("/Client/AddClient")
-    &&!request.url.includes("/Demande/ajouterDemande")
+    &&!request.url.includes("/Demande/Getlogos")
+    &&!request.url.includes("/entreprise/getEntreprises")
     ) {
       let newRequest = request.clone({
         headers: request.headers.set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'))

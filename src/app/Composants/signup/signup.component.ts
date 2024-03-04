@@ -18,10 +18,10 @@ export class SignupComponent {
   }
   ngOnInit() {
     this.clientForm=this.formBuilder.group({
-      username:this.formBuilder.control('',Validators.required),
+      username:['', [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]],
       email:this.formBuilder.control('',Validators.required),
       password:this.formBuilder.control('',Validators.required), 
-      prenom:this.formBuilder.control('',Validators.required), 
+      prenom:['', [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]],
     })
     
   }
@@ -33,22 +33,19 @@ export class SignupComponent {
           }
         )
       }
-  getErrorsMessage(arg0: string,error: any):string {
-    if(error['required']){
-      return arg0+ " obligatoir";
-    }else if(error['email']){
-      return "email invalid"
-    }
-    else if(error['min']){
-      return  "telephone invalid"
-    }
-    else if(error['max']){
-      return  "telephone invalid"
-    }
-    else return "";
-    
-  
-  }
+      getErrorsMessage(arg0: string, error: any): string {
+        if (error['required']) {
+          return "Le champ est obligatoire";
+        } else if (error['email']) {
+          return "Email invalide";
+        } else if (error['min'] || error['max']) {
+          return "Numéro de téléphone invalide";
+        } else if (error['pattern']) {
+          return "Le champ est incorrect";
+        } else {
+          return "";
+        }
+      }
 
 }
 

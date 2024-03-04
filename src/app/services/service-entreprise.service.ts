@@ -11,7 +11,7 @@ export class ServiceEntrepriseService {
   public listeDemande(){
     return this.Http.get<Array<entreprise>>("http://localhost:8081/entreprise/getEntreprises")
   }
-  public AjoutEntreprise(file:FormData)
+  public AjoutEntreprise(file:FormData) 
   {
     return this.Http.post<any>("http://localhost:8081/entreprise/AjoutEntreprise",file)
   }

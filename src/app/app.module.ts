@@ -21,7 +21,8 @@ import { CvDemandeurComponent } from './cv-demandeur/cv-demandeur.component';
 import { DeplomeDemandeurComponent } from './Composants/deplome-demandeur/deplome-demandeur.component';
 import { ListeDemandesAccepterComponent } from './composants/liste-demandes-accepter/liste-demandes-accepter.component';
 import { ListeEntrepriseComponent } from './Composants/liste-entreprise/liste-entreprise.component';
-
+import {CarouselModule} from 'ngx-owl-carousel-o';
+import { TestComponent } from './test/test.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,9 @@ import { ListeEntrepriseComponent } from './Composants/liste-entreprise/liste-en
     CvDemandeurComponent,
     DeplomeDemandeurComponent,
     ListeDemandesAccepterComponent,
-    ListeEntrepriseComponent
+    ListeEntrepriseComponent,
+    TestComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { ListeEntrepriseComponent } from './Composants/liste-entreprise/liste-en
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    
+    CarouselModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AppHttpInterceptor,multi:true}

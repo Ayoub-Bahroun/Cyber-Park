@@ -7,6 +7,7 @@
         <th scope="col" class="th">Nom De L'entreprise</th>
         <th scope="col" class="th">Mail de l'entreprise</th>
         <th scope="col" class="th">Service de l'entreprise</th>
+        <th scope="col" class="th">Site web de l'entreprise</th>
         <th scope="col" colspan="2"></th>
       </tr>
     </thead>
@@ -25,6 +26,7 @@
         <td>{{p.nomEntreprise}}</td>
         <td>{{p.mailEntreprise}}</td>
         <td>{{p.service}}</td>
+        <td>{{p.siteEntreprise}}</td>
         <td><button class="btn btn-danger" (click)="SupprimerEntreprise(p.id)"><i class="fa fa-solid fa-trash"></i></button>
         </td>
         <td>
@@ -41,15 +43,15 @@
                 </div>
                 <div >
                   <form class="modal-body"  [formGroup]="formModifierEntreprise"  novalidate>
-                  Nom de l'entreprise : <input type="text" class="form-control" placeholder="Nom" aria-label="Recipient's username"
+                  Nom de l'entreprise : <input type="text" class="form-control" [placeholder]="p.nomEntreprise" aria-label="Recipient's username"
                     aria-describedby="basic-addon2" formControlName="nomEntreprise">
-                  Gérant : <input type="text" class="form-control" placeholder="Gérant"
+                  Gérant : <input type="text" class="form-control" [placeholder]="p.gerant"
                     aria-label="Recipient's username" aria-describedby="basic-addon2"  formControlName="gerant" >
-                  Mail de l'entreprise  <input type="text" class="form-control" placeholder="Mail"
+                  Mail de l'entreprise  <input type="text" class="form-control" [placeholder]="p.mailEntreprise"
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="mailEntreprise">
-                  Service de l'entreprise  <input type="text" class="form-control" placeholder="Service"
+                  Service de l'entreprise  <input type="text" class="form-control" [placeholder]="p.service"
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="service">
-                  Site de l'entreprise  <input type="text" class="form-control" placeholder="Site web"
+                  Site de l'entreprise  <input type="text" class="form-control" [placeholder]="p.siteEntreprise"
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="siteEntreprise">
                   Logo de l'entreprise : <input type="file"
                       (change)="fileChangeLogo($event)">

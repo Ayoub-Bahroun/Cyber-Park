@@ -192,51 +192,18 @@
   </div>
   <section class="sectionn">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
+      <div class="col" *ngFor="let e of entreprises">
         <div class="card h-100">
-          <img src="assets/images/4.png" class="card-img-top" alt="...">
+          <img [src]="getlogoentreprise(e.id)" width="100px" height="180px"  class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title" style="display: flex; justify-content: center;">Cyber Phi</h5>
-            <p class="card-text" style="display: flex; flex-direction: column; margin-top: 20px;"><span>Gérant : Ridha
-                Zarrouk</span>
-              <br><span> Email : contact@mosaiqueweb.com</span>
-              <br><span> SERVICES : Web Dev</span>
+            <h5 class="card-title" style="display: flex; justify-content: center;">{{e.nomEntreprise}}</h5>
+            <p class="card-text" style="display: flex; flex-direction: column; margin-top: 20px;"><span>Gérant : {{e.gerant}}</span>
+              <br><span> Email : {{e.mailEntreprise}}</span>
+              <br><span> SERVICES : {{e.service}}</span>
             </p>
           </div>
           <div class="card-footer">
-            <small class="text-body-secondary"><a href="http://www.cyber-phi.com/">Voir le site</a></small>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="assets/images/expetInfoLogo.png" class="card-img-top" alt="..." height="200px">
-          <div class="card-body" style="margin-top: 10px;">
-            <h5 class="card-title" style="display: flex; justify-content: center;">E-Info</h5>
-            <p class="card-text" style="display: flex; flex-direction: column; margin-top: 20px;"><span>Gérant : Wael
-                Belhaj</span>
-              <br><span> Email : belhajwael@gmail.com</span>
-              <br><span> SERVICES : Web Dev</span>
-            </p>
-          </div>
-          <div class="card-footer">
-            <small class="text-body-secondary"> <a href="https://einfo.tn/developpement/">Voir le site</a></small>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="assets/images/5.jpg" class="card-img-top" alt="..." height="200px">
-          <div class="card-body">
-            <h5 class="card-title" style="display: flex; justify-content: center;">Web Med</h5>
-            <p class="card-text" style="display: flex; flex-direction: column; margin-top: 20px;"><span>Gérant : Adel
-                Belhaj Yedder</span>
-              <br><span> Email : adelbhy@gmail.com</span>
-              <br><span> SERVICES : Web Dev</span>
-            </p>
-          </div>
-          <div class="card-footer">
-            <small class="text-body-secondary"><a href="http://client.webmed-tunisie.com/">Voir le site</a></small>
+            <small class="text-body-secondary"><a [href]="e.siteEntreprise">Voir le site</a></small>
           </div>
         </div>
       </div>
