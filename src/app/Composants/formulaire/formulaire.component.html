@@ -49,11 +49,11 @@
                 </small>
               </div>
               <div class="input-box">
-                <span class="details">Déplome en forme png</span>
+                <span class="details">Déplome en forme pdf</span>
                 <input type="file" (change)="fileChangeDeplome($event)">
               </div>
               <div class="input-box">
-                <span class="details">CV en forme png</span>
+                <span class="details">CV en forme pdf</span>
                 <input type="file" (change)="fileChangeCv($event)">
               </div>
             </div>
@@ -131,11 +131,11 @@
                   'cursor': ia === 'false'||formDemande.invalid ? 'not-allowed' : 'pointer',
                   }" (mouseenter)="hovered = true" (mouseleave)="hovered = false"
                   [style.backgroundColor]="hovered ? (ia === 'false'||formDemande.invalid ? 'red' : '#7cc576') : ''"
-                  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="saveDemande();submitForm()">
+                  data-bs-toggle="modal" data-bs-target="#exampleModal" >
               </div>
 
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true" style="margin-left: 510px; width: 550px;">
+                aria-hidden="true" style="margin-left: 500px; margin-top: 30px;">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -143,11 +143,11 @@
                       </h1>
                     </div>
                     <div style="margin-left: 20px;">Êtes-vous sûr de vouloir envoyer cette demande ?</div>
-                    <div class="modal-footer d-flex justify-content-between"
-                      style="margin-left: 20px; margin-right: 20px;">
+                    <div class="modal-footer"
+                    style="padding: 12px;">
                       <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                        style="width: 100px;">Annuler</button>
-                      <button type="button" class="btn btn-primary" style="width: 100px;"  data-bs-dismiss="modal">Envoyer</button>
+                      style="width: 100px;margin-right: 10px; height: 35px;">Annuler</button>
+                      <button type="button" class="btn btn-primary" style="width: 100px;"  data-bs-dismiss="modal" style="width: 100px;height: 35px;" (click)="saveDemande();submitForm()">Envoyer</button>
                     </div>
                   </div>
                 </div>
@@ -155,7 +155,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>  
     </form>
   </div>
 </div>

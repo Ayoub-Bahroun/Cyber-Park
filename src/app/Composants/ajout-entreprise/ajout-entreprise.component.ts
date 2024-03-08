@@ -17,11 +17,11 @@ export class AjoutEntrepriseComponent implements OnInit{
   verif=false
   ngOnInit(): void {
     this.formEntreprise = this.fb.group({
-      nomEntreprise: ['', Validators.required],
-      gerant: ['', Validators.required],
-      mailEntreprise: ['', [Validators.required]],
-      service: ['', Validators.required],
-      siteEntreprise: ['', Validators.required],
+      nomEntreprise: ['', [Validators.required, Validators.pattern(/^[a-zA-Z -]*$/)]],
+      gerant: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
+      mailEntreprise: ['', [Validators.required],Validators.email],
+      service: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
+      siteEntreprise: ['', ],
     });
   }
   public fileChangeLogo(event:any)
@@ -29,9 +29,8 @@ export class AjoutEntrepriseComponent implements OnInit{
     this.SelectFilelogo=event.target.files[0]
   }
   SaveEntreprise() {
-    if(confirm("Confermez vous?"))
-    {
-      let entreprise: entreprise = this.formEntreprise.value;
+   
+    let entreprise: entreprise = this.formEntreprise.value;
     const uploadData = new FormData();
     uploadData.append('logo', this.SelectFilelogo, this.SelectFilelogo.name);
     uploadData.append('entrepriseRequestDTO',JSON.stringify(entreprise));
@@ -44,8 +43,18 @@ export class AjoutEntrepriseComponent implements OnInit{
         console.error('Error:', error);
       }
     });
-    }
-    
   }
-  
+  getErrorsMessage(arg0: string, error: any): string {
+    if (error['required']) {
+      return "Le champ est obligatoire";
+    } else if (error['email']) {
+      return "Email invalide";
+    } else if (error['min'] || error['max']) {
+      return "Numéro de téléphone invalide";
+    } else if (error['pattern']) {
+      return "Le champ est incorrect";
+    } else {
+      return "";
+    }
+  }
 }

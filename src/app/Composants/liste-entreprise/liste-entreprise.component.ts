@@ -19,6 +19,7 @@ export class ListeEntrepriseComponent {
   selectedProductId!: number
   formModifierEntreprise!: FormGroup;
   SelectFilelogo!: File
+  selectedId: number = undefined!;
   constructor(private fb: FormBuilder, private Entrepriseservice: ServiceEntrepriseService, private DemandeService: DemandeService) { }
   ngOnInit() {
     this.listeEntreprise()
@@ -37,6 +38,9 @@ export class ListeEntrepriseComponent {
         this.entreprises = data
       }
     })
+  }
+  setSelectedId(id: number) {
+    this.selectedId = id;
   }
   SupprimerEntreprise(id: Number) {
     this.Entrepriseservice.SupprimerEntreprise(id).subscribe({

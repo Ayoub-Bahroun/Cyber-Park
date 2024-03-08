@@ -1,43 +1,71 @@
 
-<body>
   <div class="container">
     <div class="title">Ajouter une entreprise</div>
     <div class="content">
-      <form [formGroup]="formEntreprise" (ngSubmit)="SaveEntreprise()" novalidate>
+      <form [formGroup]="formEntreprise" novalidate>
         <div class="user-details">
           <div class="input-box">
             <span class="details">Nom de l'entreprise</span>
             <input type="text" placeholder="Entrer le nom de l'entreprise" formControlName="nomEntreprise" required>
-
+            <small *ngIf="formEntreprise.controls['nomEntreprise'].errors && formEntreprise.controls['nomEntreprise'].touched"
+              class="text-danger">
+              {{ getErrorsMessage('nomEntreprise', formEntreprise.controls['nomEntreprise'].errors) }}
+            </small>
           </div>
           <div class="input-box">
             <span class="details">Nom du gérant</span>
             <input type="text" placeholder="Entrer le nom du gérant " formControlName="gerant" required>
-
+            <small *ngIf="formEntreprise.controls['gerant'].errors && formEntreprise.controls['gerant'].touched"
+              class="text-danger">
+              {{ getErrorsMessage('gerant', formEntreprise.controls['gerant'].errors) }}
+            </small>
           </div>
           <div class="input-box">
             <span class="details">E-mail</span>
             <input type="email" placeholder="Entrer l'email de l'entreprise" formControlName="mailEntreprise" required>
+            <small *ngIf="formEntreprise.controls['mailEntreprise'].errors && formEntreprise.controls['mailEntreprise'].touched"
+              class="text-danger">
+              {{ getErrorsMessage('mailEntreprise', formEntreprise.controls['mailEntreprise'].errors) }}
+            </small>
           </div>
           <div class="input-box">
             <span class="details">Services</span>
             <input type="text" placeholder="Entrer le service de l'entreprise" formControlName="service" required>
-
+            <small *ngIf="formEntreprise.controls['service'].errors && formEntreprise.controls['service'].touched"
+              class="text-danger">
+              {{ getErrorsMessage('service', formEntreprise.controls['service'].errors) }}
+            </small>
           </div>
           <div class="input-box">
             <span class="details">Lien de votre site web</span>
             <input type="text" placeholder="Entrer votre site web" formControlName="siteEntreprise" required>
+           
           </div>
           <div class="input-box">
             <span class="details">Logo de l'entreprise</span>
             <input type="file" (change)="fileChangeLogo($event)">
           </div>
           <div class="button">
-            <input type="submit" value="Ajouter">
+            <input type="submit" value="Ajouter" data-bs-toggle="modal" data-bs-target="#exampleModal">
           </div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true" style="margin-left: 550px; margin-top: 30px;">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel"> Confirmez-vous ?
+                      </h1>
+                    </div>
+                    <div >Êtes-vous sûr de vouloir ajouter cette entreprise ?</div>
+                    <div class="modal-footer" style="padding: 12px;">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                       style="width: 100px;margin-right: 10px; height: 35px;">Annuler</button>
+                      <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="SaveEntreprise()" style="width: 100px;height: 35px;">Ajouter</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
         </div>
       </form>
     </div>
   </div>
-
-  <body>
