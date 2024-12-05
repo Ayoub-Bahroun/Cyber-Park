@@ -13,8 +13,8 @@ import { AjoutEntrepriseComponent } from './Composants/ajout-entreprise/ajout-en
 import { ListeDemandeComponent } from './Composants/liste-demande/liste-demande.component';
 import { CvDemandeurComponent } from './cv-demandeur/cv-demandeur.component';
 import { DeplomeDemandeurComponent } from './Composants/deplome-demandeur/deplome-demandeur.component';
-import { ListeDemandesAccepterComponent } from './composants/liste-demandes-accepter/liste-demandes-accepter.component';
 import { ListeEntrepriseComponent } from './Composants/liste-entreprise/liste-entreprise.component';
+import { ListeDemandesAccepterComponent } from './composants/liste-demandes-accepter/liste-demandes-accepter.component';
 const routes: Routes = [
   {path:"NavBarComponent",component:NavBarComponent},
   {path:"SlideBarComponent",component:SlideBarComponent},

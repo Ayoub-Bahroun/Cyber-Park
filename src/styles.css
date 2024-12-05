@@ -330,6 +330,7 @@ body {
   .about .image {
     padding: 20px;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    height: 470px;
   }
   
   .about .content h3 {

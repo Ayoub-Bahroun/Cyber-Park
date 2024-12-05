@@ -38,7 +38,7 @@ export class FormulaireComponent implements OnInit {
       prenom: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]],
       cin: ['', [Validators.required, Validators.pattern(/^-?\d*\.?\d*$/)]],
       tel: ['', [Validators.required, Validators.pattern(/^-?\d*\.?\d*$/)]],
-      mail: ['', Validators.required, Validators.email],
+      mail: ['', [Validators.required, Validators.email]],
 
     });
     this.LoginService.ia$.subscribe(ia => {

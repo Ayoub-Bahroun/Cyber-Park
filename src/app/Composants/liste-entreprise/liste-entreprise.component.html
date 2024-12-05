@@ -61,15 +61,15 @@
               </div>
               <div>
                 <form class="modal-body" [formGroup]="formModifierEntreprise" novalidate>
-                  Nom de l'entreprise : <input type="text" class="form-control" [placeholder]="p.nomEntreprise"
+                  Nom de l'entreprise : <input type="text" class="form-control" [placeholder]="selectedEntreprise?.nomEntreprise"
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="nomEntreprise">
-                  Gérant : <input type="text" class="form-control" [placeholder]="p.gerant"
+                  Gérant : <input type="text" class="form-control" [placeholder]="selectedEntreprise?.gerant"
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="gerant">
-                  Mail de l'entreprise <input type="text" class="form-control" [placeholder]="p.mailEntreprise"
+                  Mail de l'entreprise <input type="text" class="form-control" [placeholder]="selectedEntreprise?.mailEntreprise"
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="mailEntreprise">
-                  Service de l'entreprise <input type="text" class="form-control" [placeholder]="p.service"
+                  Service de l'entreprise <input type="text" class="form-control" [placeholder]="selectedEntreprise?.service"
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="service">
-                  Site de l'entreprise <input type="text" class="form-control" [placeholder]="p.siteEntreprise"
+                  Site de l'entreprise <input type="text" class="form-control"[placeholder]="selectedEntreprise?.siteEntreprise"
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="siteEntreprise">
                   Logo de l'entreprise : <input type="file" (change)="fileChangeLogo($event)">
                 </form>

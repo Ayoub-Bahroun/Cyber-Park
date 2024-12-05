@@ -42,7 +42,7 @@ import { TestComponent } from './test/test.component';
     ListeDemandesAccepterComponent,
     ListeEntrepriseComponent,
     TestComponent,
-
+    ListeDemandesAccepterComponent
   ],
   imports: [
     BrowserModule,

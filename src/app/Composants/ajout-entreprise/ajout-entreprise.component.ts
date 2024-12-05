@@ -37,7 +37,7 @@ export class AjoutEntrepriseComponent implements OnInit{
     this.verif=true  
     this.ServiceEntrepriseService.AjoutEntreprise(uploadData).subscribe({
       next: data => {
-        
+        this.router.navigateByUrl("/AdminComponent/ListeEntrepriseComponent")
       },
       error: error => {
         console.error('Error:', error);
