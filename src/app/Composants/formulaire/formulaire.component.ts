@@ -5,7 +5,6 @@ import { Route, Router } from '@angular/router';
 import { LoginService } from 'src/app/login.service';
 import { demande } from 'src/app/model/demande.model';
 import { demandeur } from 'src/app/model/demandeur.model';
-import { DemandeService } from 'src/app/services/demande.service';
 
 @Component({
   selector: 'app-formulaire',
@@ -21,7 +20,7 @@ export class FormulaireComponent implements OnInit {
   SelectFilelogo!: File
   ia:any
   hovered: boolean = false;
-  constructor(private fb: FormBuilder,private fb2: FormBuilder, private router: Router, private Http: HttpClient, private DemandeService: DemandeService,private LoginService:LoginService) { }
+  constructor(private fb: FormBuilder,private fb2: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.formDemande = this.fb.group({
@@ -41,30 +40,10 @@ export class FormulaireComponent implements OnInit {
       mail: ['', [Validators.required, Validators.email]],
 
     });
-    this.LoginService.ia$.subscribe(ia => {
-      this.ia = ia;
-    });
-    console.log(this.ia)
+  
   }
  
-  saveDemande() {
-      let demande: demande = this.formDemande.value;
-      let demandeeur: demandeur = this.formDemandeur.value;
-      const uploadData = new FormData();
-      uploadData.append('diplomeFile', this.SelectFileDeplme, this.SelectFileDeplme.name);
-      uploadData.append('CVFile', this.SelectFileCv, this.SelectFileCv.name);
-      uploadData.append('logo', this.SelectFilelogo, this.SelectFilelogo.name);
-      uploadData.append('demandeRequestDto', JSON.stringify(demande));
-      uploadData.append('demandeurRequestDto', JSON.stringify(demandeeur));
-      this.DemandeService.AddDemande(uploadData).subscribe({
-        next: data => {
-         
-        },
-        error: error => {
-          console.error('Error:', error);
-        }
-      });
-  }
+  
   titre():String
   {
     if(this.ia=='false')

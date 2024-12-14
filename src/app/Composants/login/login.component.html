@@ -3,7 +3,7 @@
         <div class="form-container sign-up-container">
         </div>
         <div class="form-container sign-in-container">
-            <form role="form" [formGroup]="formLogin" (ngSubmit)="login1()">
+            <form role="form" [formGroup]="formLogin" >
                 <h2 style="color: #151515;">Se connecter</h2>
                 <input type="text" placeholder="Nom" formControlName="username" required />
                 <small 
@@ -16,7 +16,7 @@
                     class="text-danger">
                 </small>
                 
-                <button type="button" (click)="login1()" data-bs-dismiss="modal" >
+                <button type="button" data-bs-dismiss="modal" routerLink="/">
                     Se connecter</button>
             </form>
         </div>

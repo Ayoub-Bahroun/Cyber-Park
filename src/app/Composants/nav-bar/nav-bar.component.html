@@ -6,13 +6,13 @@
     </div>
     <nav id="navbar" class="navbar" style="margin-left: 150px;">
       <ul>
-        <li><a class="nav-link scrollto" href="#about">
+        <li><a class="nav-link scrollto" href="#x">
             À PROPOS</a></li>
         <li><a class="nav-link scrollto" href="#services">
             NOS SERVICES</a></li>
         <li><a class="nav-link scrollto" href="#why-us">PLUS DE DETAILS</a></li>
-        <li><a class="nav-link scrollto" href="#NOS-HEBERGER">NOS HEBERGER</a></li>
-        <li><a class="nav-link scrollto" routerLink="/FormulaireComponent">DEMANDE D'UNE BUREAU</a></li>
+        <li><a class="nav-link scrollto" href="#NOS-HEBERGER">NOS LOCALS</a></li>
+        <li><a class="nav-link scrollto" routerLink="/FormulaireComponent">DEMANDE D'UNE DE BUREAU</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
@@ -21,14 +21,13 @@
         <div class="dropdown">
           <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
             data-bs-toggle="dropdown" aria-expanded="false">
-            {{ userName }}
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#" style="color: red;" (click)="deconnexion()">Déconnecter</a></li>
+            <li><a class="dropdown-item" href="#" style="color: red;" >Déconnecter</a></li>
           </ul>
         </div>
       </div>
-      <div > <button *ngIf="ia=='false'" class="btn btn-success" (click)="connexion()">Connexion</button>
+      <div > <button  class="btn btn-success" (click)="connexion()">Connexion</button>
       </div>
     </div>
   </div>

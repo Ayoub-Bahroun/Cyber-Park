@@ -11,24 +11,20 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of entreprises| paginate:{
-            itemsPerPage: cardSize,
-            currentPage: page,
-            totalItems: count
-        };let i = index" class="table-light">
+    <tr  class="table-light">
 
       <td><a>
-          <span class="link hide"> <img [src]="getlogoentreprise(p.id)" width="40" height="40"
+          <span class="link hide"> <img src="" width="40" height="40"
               style="border-radius: 50%;"></span>
         </a></td>
-      <td>{{p.gerant}}</td>
-      <td>{{p.nomEntreprise}}</td>
-      <td>{{p.mailEntreprise}}</td>
-      <td>{{p.service}}</td>
-      <td>{{p.siteEntreprise}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
       <td>
         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1"
-          (click)="setSelectedId(p.id)">
+          >
           <i class="fa fa-solid fa-trash"></i>
         </button>
         <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -41,7 +37,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                  (click)="SupprimerEntreprise(selectedId)">Supprimer</button>
+                  >Supprimer</button>
               </div>
             </div>
           </div>
@@ -49,7 +45,7 @@
       </td>
       <td>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-          (click)="OpenModifierModal(p.id)">
+          >
           <i class="fa-solid fa-pen-to-square"></i>
         </button>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,20 +57,20 @@
               </div>
               <div>
                 <form class="modal-body" [formGroup]="formModifierEntreprise" novalidate>
-                  Nom de l'entreprise : <input type="text" class="form-control" [placeholder]="selectedEntreprise?.nomEntreprise"
+                  Nom de l'entreprise : <input type="text" class="form-control" [placeholder]=""
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="nomEntreprise">
-                  Gérant : <input type="text" class="form-control" [placeholder]="selectedEntreprise?.gerant"
+                  Gérant : <input type="text" class="form-control" [placeholder]=""
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="gerant">
-                  Mail de l'entreprise <input type="text" class="form-control" [placeholder]="selectedEntreprise?.mailEntreprise"
+                  Mail de l'entreprise <input type="text" class="form-control" [placeholder]=""
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="mailEntreprise">
-                  Service de l'entreprise <input type="text" class="form-control" [placeholder]="selectedEntreprise?.service"
+                  Service de l'entreprise <input type="text" class="form-control" [placeholder]=""
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="service">
-                  Site de l'entreprise <input type="text" class="form-control"[placeholder]="selectedEntreprise?.siteEntreprise"
+                  Site de l'entreprise <input type="text" class="form-control"[placeholder]=""
                     aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="siteEntreprise">
-                  Logo de l'entreprise : <input type="file" (change)="fileChangeLogo($event)">
+                  Logo de l'entreprise : <input type="file" >
                 </form>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="modifierEntreprise()">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >
                     Sauvegarder</button>
                 </div>
               </div>
@@ -86,7 +82,5 @@
   </tbody>
 </table>
 <div>
-  <pagination-controls *ngIf="entreprises.length>8" previousLabel="prev" nextLabel="next"
-    (pageChange)="onCardDataChange($event)" class="container d-flex align-items-center justify-content-center">
-  </pagination-controls>
+  
 </div>

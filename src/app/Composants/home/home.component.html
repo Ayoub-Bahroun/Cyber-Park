@@ -1,7 +1,7 @@
 <app-nav-bar></app-nav-bar>
 <app-slide-bar></app-slide-bar>
 <main id="main">
-  <section id="about" class="about">
+  <section id="x" class="about">
     <div class="container">
 
       <div class="section-title">
@@ -23,11 +23,7 @@
               :</span>
             <br>
             <p style="font-size: 14px;">
-              L'objectif du Développement Parc est d'offrir des espaces fonctionnels, avec des équipements et des réseaux de
-              communications modernes et spécialisés, pour accueillir les promoteurs qui désirent monter des projets de
-              services, basés sur les nouvelles technologies de l'information et de la communication.
-              Ces services sont orientés vers les organismes économiques et administratifs implantés dans la région, ou
-              dans d'autres endroits du pays, ou à l'étranger, sous forme de services à distance.
+              
             </p>
             <br><span style="font-family: 'Courier New', Courier, monospace; font-size: large; color: #7cc576;">Domaines
               d'activité :</span>
@@ -188,26 +184,60 @@
     </div>
   </section>
   <div class="section-title" id="NOS-HEBERGER">
-    <h2 style="text-align: center;">Nos Heberger</h2>
+    <h2 style="text-align: center;">Nos Locals</h2>
   </div>
+
   <section class="sectionn">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col" *ngFor="let e of entreprises">
+      
+      <div class="col" >
         <div class="card h-100">
-          <img [src]="getlogoentreprise(e.id)" width="100px" height="180px"  class="card-img-top" alt="...">
+          <img src="assets\images\gafsa.jpg" width="100px" height="180px"  class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title" style="display: flex; justify-content: center;">{{e.nomEntreprise}}</h5>
-            <p class="card-text" style="display: flex; flex-direction: column; margin-top: 20px;"><span>Gérant : {{e.gerant}}</span>
-              <br><span> Email : {{e.mailEntreprise}}</span>
-              <br><span> SERVICES : {{e.service}}</span>
+            <h5 class="card-title" style="display: flex; justify-content: center;">CyberPark Gafsa</h5>
+            <p class="card-text" style="display: flex; flex-direction: column; margin-top: 20px;"><span>Gérant Mahmoud Lagrem:</span>
+              <br><span> Email : MahmoudLag@gmail.com</span>
+              <br><span> SERVICES : Centre d'appel</span>
             </p>
           </div>
           <div class="card-footer">
-            <small class="text-body-secondary"><a [href]="e.siteEntreprise">Voir le site</a></small>
+            <small class="text-body-secondary"><a href="">Voir le site</a></small>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col" >
+        <div class="card h-100">
+          <img src="assets\images\monastir.jpg" width="100px" height="180px"  class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" style="display: flex; justify-content: center;">CyberPark Monastir</h5>
+            <p class="card-text" style="display: flex; flex-direction: column; margin-top: 20px;"><span>Gérant : Adem Ben Mokhtar</span>
+              <br><span> Email :  AdembenMokhtar@gmail.com</span>
+              <br><span> SERVICES : Developpement Mobile</span>
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary"><a href="">Voir le site</a></small>
+          </div>
+        </div>
+      </div>
+      <div class="col" >
+        <div class="card h-100">
+          <img src="assets\images\djerba.jpg" width="100px" height="180px"  class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" style="display: flex; justify-content: center;">CyberPark Djerba</h5>
+            <p class="card-text" style="display: flex; flex-direction: column; margin-top: 20px;"><span>Gérant : Mokhtar ben babis</span>
+              <br><span> Email : mokhtar.ben@gmail.com</span>
+              <br><span> SERVICES : Developpement web</span>
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary"><a href="">Voir le site</a></small>
           </div>
         </div>
       </div>
     </div>
   </section>
+  
 </main>
 <app-footer></app-footer>

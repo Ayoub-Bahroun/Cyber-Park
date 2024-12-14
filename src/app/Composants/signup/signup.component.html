@@ -3,27 +3,25 @@
         <div class="form-container sign-up-container">
         </div>
         <div class="form-container sign-in-container">
-            <form role="form" [formGroup]="clientForm" (ngSubmit)="saveClient()" novalidate>
+            <form role="form" [formGroup]="clientForm"  novalidate>
                 <h2 style="color: #151515;">Créer un compte</h2>
                 <div>
                     <input type="text" placeholder="Nom" formControlName="username" required />
                     <small *ngIf="clientForm.controls['username'].errors && clientForm.controls['username'].touched"
                     class="text-danger">
-                    {{ getErrorsMessage('username', clientForm.controls['username'].errors) }}
+                    
                 </small>
                 </div>
                 <div>
                     <input type="text" placeholder="Prenom" formControlName="prenom" required />
                     <small *ngIf="clientForm.controls['prenom'].errors && clientForm.controls['prenom'].touched"
                     class="text-danger">
-                    {{ getErrorsMessage('prenom', clientForm.controls['prenom'].errors) }}
                 </small>
                 </div>
                 <div>
                     <input type="text" placeholder="e-mail" formControlName="email" required />
                     <small *ngIf="clientForm.controls['email'].errors && clientForm.controls['email'].touched"
                     class="text-danger">
-                    {{ getErrorsMessage('email', clientForm.controls['email'].errors) }}
                 </small>
                 </div>
                 <div>
@@ -31,7 +29,6 @@
                     <input type="password" placeholder="Mot de passe" formControlName="password" required />
                     <small *ngIf="clientForm.controls['password'].errors && clientForm.controls['password'].touched"
                     class="text-danger">
-                    {{ getErrorsMessage('password', clientForm.controls['password'].errors) }}
                 </small>
                 </div>
                 <button type="submit" data-bs-dismiss="modal">

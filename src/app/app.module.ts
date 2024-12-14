@@ -11,7 +11,6 @@ import { FormulaireComponent } from './Composants/formulaire/formulaire.componen
 import { LoginComponent } from './Composants/login/login.component';
 import { SignupComponent } from './Composants/signup/signup.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AppHttpInterceptor } from './interceptor/app-http.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SideBarComponent } from './Composants/side-bar/side-bar.component';
 import { AdminComponent } from './Composants/admin/admin.component';
@@ -42,7 +41,8 @@ import { TestComponent } from './test/test.component';
     ListeDemandesAccepterComponent,
     ListeEntrepriseComponent,
     TestComponent,
-    ListeDemandesAccepterComponent
+    ListeDemandesAccepterComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,9 +52,6 @@ import { TestComponent } from './test/test.component';
     ReactiveFormsModule,
     NgxPaginationModule,
     CarouselModule,
-  ],
-  providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:AppHttpInterceptor,multi:true}
   ],
   bootstrap: [AppComponent]
 })

@@ -17,10 +17,10 @@
   <nav [ngClass]="!collapsed ? 'sidenav-collapsed':''">
     <div class="sidebar-top">
       <div>
-        <button style="background-color: transparent; border: 0;" (click)="togglecollase()">
+        <button style="background-color: transparent; border: 0;" >
           <img src="assets\images\logo-removebg-preview.png" width="120px" height="60px" style="margin-left: -40px;" alt="">
         </button>
-        <button style="margin-left: 90px;border: none; background-color: transparent;" (click)="closeSidenav()"
+        <button style="margin-left: 90px;border: none; background-color: transparent;"
           *ngIf="collapsed">
           <i class="fa-solid fa-bars" style="font-size: 26px;"></i>
         </button>
@@ -52,7 +52,7 @@
             <span class="link hide" *ngIf="collapsed">Ajouter une entreprise</span>
           </a>
         </li>
-        <li style="margin-top: 200px;"><a class="dropdown-item" href="" (click)="deconnexion()"
+        <li style="margin-top: 200px;"><a class="dropdown-item" href=""
             style="color: red;"><i class="fa-solid fa-right-from-bracket"></i><span class="link hide" *ngIf="collapsed" style="font-size: 18px;">Déconnecter</span></a>
         </li>
       </ul>

@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { entreprise } from 'src/app/model/entreprise.model';
-import { ServiceEntrepriseService } from 'src/app/services/service-entreprise.service';
 
 @Component({
   selector: 'app-ajout-entreprise',
@@ -11,7 +9,7 @@ import { ServiceEntrepriseService } from 'src/app/services/service-entreprise.se
   styleUrls: ['./ajout-entreprise.component.css']
 })
 export class AjoutEntrepriseComponent implements OnInit{
-  constructor(private fb: FormBuilder,private router: Router,private Http:HttpClient,private ServiceEntrepriseService: ServiceEntrepriseService){}
+  constructor(private fb: FormBuilder,private router: Router){}
   formEntreprise!: FormGroup;
   SelectFilelogo!:File
   verif=false
@@ -28,22 +26,7 @@ export class AjoutEntrepriseComponent implements OnInit{
   {
     this.SelectFilelogo=event.target.files[0]
   }
-  SaveEntreprise() {
-   
-    let entreprise: entreprise = this.formEntreprise.value;
-    const uploadData = new FormData();
-    uploadData.append('logo', this.SelectFilelogo, this.SelectFilelogo.name);
-    uploadData.append('entrepriseRequestDTO',JSON.stringify(entreprise));
-    this.verif=true  
-    this.ServiceEntrepriseService.AjoutEntreprise(uploadData).subscribe({
-      next: data => {
-        this.router.navigateByUrl("/AdminComponent/ListeEntrepriseComponent")
-      },
-      error: error => {
-        console.error('Error:', error);
-      }
-    });
-  }
+  
   getErrorsMessage(arg0: string, error: any): string {
     if (error['required']) {
       return "Le champ est obligatoire";

@@ -50,91 +50,21 @@
               </div>
               <div class="input-box">
                 <span class="details">Déplome en forme pdf</span>
-                <input type="file" (change)="fileChangeDeplome($event)">
+                <input type="file" >
               </div>
               <div class="input-box">
                 <span class="details">CV en forme pdf</span>
-                <input type="file" (change)="fileChangeCv($event)">
+                <input type="file" >
               </div>
             </div>
             <div id="button">
-              <input type="submit" value="Next" (click)="nextStep()" style="margin-left: 615px;"
+              <input type="submit" value="Validate"  style="margin-left: 615px;"
                 [disabled]="formDemandeur.invalid" [title]="titre()" [ngStyle]="{
                   'cursor': formDemandeur.invalid ? 'not-allowed' : 'pointer',
                   }" (mouseenter)="hovered = true" (mouseleave)="hovered = false"
-                [style.backgroundColor]="hovered ? (formDemandeur.invalid ? 'red' : '#7cc576') : ''">
+                [style.backgroundColor]="hovered ? (formDemandeur.invalid ? 'red' : '#7cc576') : ''"data-bs-toggle="modal" data-bs-target="#exampleModal">
             </div>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div *ngIf="currentStep === 2">
-    <form [formGroup]="formDemande"  novalidate>
-      <div class="container">
-        <div class="title">Information sur l'entreprise</div>
-        <div class="content">
-          <div class="form">
-            <div class="user-details">
-              <div class="input-box">
-                <span class="details">Nom de l'entreprise</span>
-                <input type="text" placeholder="Entrer le nom de l'entreprise" formControlName="nomEntreprise" required>
-                <small
-                  *ngIf="formDemande.controls['nomEntreprise'].errors && formDemande.controls['nomEntreprise'].touched"
-                  class="text-danger">
-                  {{ getErrorsMessage('nomEntreprise', formDemande.controls['nomEntreprise'].errors) }}
-                </small>
-              </div>
-
-              <div class="input-box">
-                <span class="details">Idee de votre projet</span>
-                <input type="text" placeholder="Entrer votre idée de projet " formControlName="ideeProjet" required>
-                <small *ngIf="formDemande.controls['ideeProjet'].errors && formDemande.controls['ideeProjet'].touched"
-                  class="text-danger">
-                  {{ getErrorsMessage('ideeProjet', formDemande.controls['ideeProjet'].errors) }}
-                </small>
-              </div>
-              <div class="input-box">
-                <span class="details">E-mail de l'entreprise</span>
-                <input type="text" placeholder="Entrer l'email de l'entreprise" formControlName="mailEntreprise"
-                  required>
-                <small
-                  *ngIf="formDemande.controls['mailEntreprise'].errors && formDemande.controls['mailEntreprise'].touched"
-                  class="text-danger">
-                  {{ getErrorsMessage('mailEntreprise', formDemande.controls['mailEntreprise'].errors) }}
-                </small>
-              </div>
-              <div class="input-box">
-                <span class="details">Services</span>
-                <input type="text" placeholder="Entrer les services de l'entreprise" formControlName="service" required>
-                <small *ngIf="formDemande.controls['service'].errors && formDemande.controls['service'].touched"
-                  class="text-danger">
-                  {{ getErrorsMessage('service', formDemande.controls['service'].errors) }}
-                </small>
-              </div>
-              <div class="input-box">
-                <span class="details">Logo de l'entreprise</span>
-                <input type="file" (change)="fileChangeLogo($event)">
-              </div>
-              <div class="input-box">
-                <span class="details">Lien de votre site web</span>
-                <input type="text" placeholder="Entrer votre site web" formControlName="service" required>
-              </div>
-            </div>
-            <div style="display: flex; justify-content: space-between;">
-              <div class="button">
-                <input type="submit" value="Previous" (click)="prevStep()">
-              </div>
-              <div id="button">
-                <input type="button" value="Submit" [disabled]="ia === 'false'||formDemande.invalid"
-                   [title]="titre()" [ngStyle]="{
-                  'cursor': ia === 'false'||formDemande.invalid ? 'not-allowed' : 'pointer',
-                  }" (mouseenter)="hovered = true" (mouseleave)="hovered = false"
-                  [style.backgroundColor]="hovered ? (ia === 'false'||formDemande.invalid ? 'red' : '#7cc576') : ''"
-                  data-bs-toggle="modal" data-bs-target="#exampleModal" >
-              </div>
-
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true" style="margin-left: 500px; margin-top: 30px;">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -147,16 +77,16 @@
                     style="padding: 12px;">
                       <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
                       style="width: 100px;margin-right: 10px; height: 35px;">Annuler</button>
-                      <button type="button" class="btn btn-primary" style="width: 100px;"  data-bs-dismiss="modal" style="width: 100px;height: 35px;" (click)="saveDemande();submitForm()">Envoyer</button>
+                      <button type="button" class="btn btn-primary" style="width: 100px;"  data-bs-dismiss="modal" style="width: 100px;height: 35px;" (click)="submitForm()">Envoyer</button>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
-      </div>  
+      </div>
     </form>
   </div>
+  
 </div>
 <app-footer></app-footer>
